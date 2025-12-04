@@ -1,15 +1,12 @@
-// -imports-
 import React, { useState, useEffect, useRef } from 'react';
 import { Plus, Minus, MessageCircle } from 'lucide-react';
+import { CONTACT_INFO, WHATSAPP_LINK } from '../constants'; 
 
-// -component-
 const FAQ = () => {
-  // -states-
   const [openIndex, setOpenIndex] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  // -effects-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -23,12 +20,10 @@ const FAQ = () => {
     };
   }, []);
 
-  // -handlers-
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  // -data-
   const faqs = [
     {
       question: "Como funciona a terapia?",
@@ -56,13 +51,10 @@ const FAQ = () => {
     }
   ];
 
-  // -styles-
   const buttonWrapper = "group relative w-72 md:w-64 lg:w-64 2xl:w-80 h-16 md:h-14 lg:h-14 2xl:h-16 rounded-full shadow-lg bg-yasmin-olive overflow-hidden cursor-pointer hover:shadow-2xl hover:-translate-y-1 transition-all duration-300";
-  
   const sliderContainer = "absolute w-full h-[200%] top-0 flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-1/2";
   const halfButton = "w-full h-1/2 flex items-center justify-center text-base 2xl:text-lg font-bold gap-2";
 
-  // -jsx-
   return (
     <section id="duvidas" className="pt-20 lg:pt-24 2xl:pt-32 pb-10 bg-[#FCFDF5] relative overflow-hidden z-10 w-full max-w-[100vw]">
       
@@ -87,7 +79,7 @@ const FAQ = () => {
           </p>
           
           <div className={`${buttonWrapper} mx-auto lg:mx-0`}>
-                <a href="https://wa.me/558282171705" target="_blank" className="block w-full h-full relative">
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative">
                     <div className={sliderContainer}>
                         <div className={`${halfButton} text-white`}>
                             <MessageCircle size={20} />
@@ -96,7 +88,9 @@ const FAQ = () => {
                         
                         <div className={`${halfButton} text-white`}>
                             <MessageCircle size={20} className="fill-current" />
-                            <span className="font-sans font-bold tracking-wide text-lg 2xl:text-xl">(82) 98217-1705</span>
+                            <span className="font-sans font-bold tracking-wide text-lg 2xl:text-xl">
+                              {CONTACT_INFO.whatsappDisplay}
+                            </span>
                         </div>
                     </div>
                 </a>
@@ -106,7 +100,7 @@ const FAQ = () => {
 
         <div className="lg:col-span-8">
           <div className="divide-y divide-yasmin-olive/10 border-t border-b border-yasmin-olive/10">
-            {faqs.map((item, idx) => (
+            {faqs?.map((item, idx) => (
               <div key={idx} className="group">
                 <button
                   onClick={() => toggleAccordion(idx)}

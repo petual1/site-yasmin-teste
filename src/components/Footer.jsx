@@ -1,16 +1,13 @@
-// -imports-
 import React, { useEffect, useState, useRef } from 'react';
 import { MessageCircle, Instagram, MapPin, ArrowUp, Mail } from 'lucide-react';
 import logoFull from '../assets/logo-full.png';
 import logoIcon from '../assets/logo-icon.png';
+import { CONTACT_INFO, WHATSAPP_LINK } from '../constants'; 
 
-// -component-
 const Footer = () => {
-  // -states-
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  // -effects-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -24,22 +21,16 @@ const Footer = () => {
     };
   }, []);
 
-  // -handlers-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // -styles-
   const desktopButtonWrapper = "group relative rounded-full shadow-xl bg-yasmin-olive overflow-hidden cursor-pointer hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 mx-auto w-64 lg:w-64 2xl:w-80 h-14 lg:h-14 2xl:h-16";
-  
   const sliderContainer = "absolute w-full h-[200%] top-0 flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-1/2";
   const sliderHalfButton = "w-full h-1/2 flex items-center justify-center text-base 2xl:text-lg font-bold font-sans gap-3";
-  
   const fixedMobileButton = "flex items-center justify-center w-full h-14 bg-yasmin-olive text-white rounded-full shadow-xl hover:bg-yasmin-olive/95 transition-colors duration-300 gap-2 text-lg font-bold font-sans";
-
   const cardBaseStyle = "group flex flex-col items-center justify-start h-full w-full p-8 lg:p-8 2xl:p-10 rounded-3xl bg-white/60 backdrop-blur-md border border-white/60 shadow-sm hover:shadow-md hover:bg-white transition-all duration-300";
 
-  // -jsx-
   return (
     <footer id="contato" className="relative min-h-screen flex flex-col pt-12 pb-8 overflow-hidden bg-yasmin-base max-w-[100vw]">
       
@@ -78,7 +69,7 @@ const Footer = () => {
 
           <div className="mx-auto w-full max-w-xs md:max-w-md">
             <div className={`hidden md:block ${desktopButtonWrapper}`}>
-                <a href="https://wa.me/558282171705" target="_blank" className="block w-full h-full relative">
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative">
                     <div className={sliderContainer}>
                         <div className={`${sliderHalfButton} text-white`}>
                             <MessageCircle size={22} />
@@ -87,19 +78,24 @@ const Footer = () => {
                         
                         <div className={`${sliderHalfButton} text-white font-sans`}>
                             <MessageCircle size={22} className="fill-current" />
-                            <span className="font-sans font-bold tracking-wide text-lg 2xl:text-xl">(82) 98217-1705</span>
+                            <span className="font-sans font-bold tracking-wide text-lg 2xl:text-xl">
+                              {CONTACT_INFO.whatsappDisplay}
+                            </span>
                         </div>
                     </div>
                 </a>
             </div>
 
             <a 
-              href="https://wa.me/558282171705" 
+              href={WHATSAPP_LINK} 
               target="_blank" 
+              rel="noopener noreferrer"
               className={`md:hidden ${fixedMobileButton} w-full`}
             >
                 <MessageCircle size={22} />
-                <span className="font-sans font-bold tracking-wide text-lg">(82) 98217-1705</span>
+                <span className="font-sans font-bold tracking-wide text-lg">
+                  {CONTACT_INFO.whatsappDisplay}
+                </span>
             </a>
           </div>
 
@@ -110,24 +106,24 @@ const Footer = () => {
 
         <div className="grid md:grid-cols-3 gap-4 lg:gap-5 2xl:gap-8 mb-12 items-stretch">
             
-            <a href="https://instagram.com/psi.yasminmello" target="_blank" className={cardBaseStyle}>
+            <a href={CONTACT_INFO.instagramLink} target="_blank" rel="noopener noreferrer" className={cardBaseStyle}>
                 <div className="mb-4 p-3 bg-white rounded-full text-yasmin-rose shadow-sm group-hover:scale-110 transition-transform flex-shrink-0">
                     <Instagram size={24} className="2xl:w-7 2xl:h-7" />
                 </div>
                 <span className="text-xs text-gray-500 uppercase tracking-wider font-light mb-2 font-sans">Instagram</span>
-                <span className="text-base 2xl:text-lg font-serif text-yasmin-olive">@psi.yasminmello</span>
+                <span className="text-base 2xl:text-lg font-serif text-yasmin-olive">{CONTACT_INFO.instagramDisplay}</span>
             </a>
 
-            <a href="mailto:yasminmello.psi@gmail.com" className={cardBaseStyle}>
+            <a href={`mailto:${CONTACT_INFO.email}`} className={cardBaseStyle}>
                 <div className="mb-4 p-3 bg-white rounded-full text-yasmin-rose shadow-sm group-hover:scale-110 transition-transform flex-shrink-0">
                     <Mail size={24} className="2xl:w-7 2xl:h-7" />
                 </div>
                 <span className="text-xs text-gray-500 uppercase tracking-wider font-light mb-2 font-sans">Email</span>
-                <span className="text-sm 2xl:text-base font-serif text-yasmin-olive break-all text-center">yasminmello.psi@gmail.com</span>
+                <span className="text-sm 2xl:text-base font-serif text-yasmin-olive break-all text-center">{CONTACT_INFO.email}</span>
             </a>
 
             <a 
-               href="https://www.google.com/maps/search/?api=1&query=Edifício+203+Office+Av+Dom+Antônio+Brandão+Farol+Maceió"
+               href={CONTACT_INFO.address.mapsLink}
                target="_blank"
                rel="noopener noreferrer"
                className={cardBaseStyle}
@@ -140,9 +136,9 @@ const Footer = () => {
                 <span className="text-base 2xl:text-lg font-serif text-yasmin-olive text-center leading-tight mb-4">Online & Presencial</span>
                 
                 <div className="text-center font-sans text-sm text-gray-600 leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
-                    <p>Av. Dom Antônio Brandão, 203</p>
-                    <p>Farol, Maceió - AL</p>
-                    <p className="text-xs font-semibold text-yasmin-olive mt-2 tracking-wide uppercase">Edifício 203 Office</p>
+                    <p>{CONTACT_INFO.address.street}</p>
+                    <p>{CONTACT_INFO.address.district}</p>
+                    <p className="text-xs font-semibold text-yasmin-olive mt-2 tracking-wide uppercase">{CONTACT_INFO.address.building}</p>
                 </div>
             </a>
         </div>
@@ -155,7 +151,7 @@ const Footer = () => {
                 
                 <div className="text-xs text-gray-500 font-light text-center md:text-left order-2 md:order-1 flex-1 font-sans">
                    <p>© {new Date().getFullYear()} Yasmin Mello.</p>
-                   <p className="text-yasmin-olive font-medium mt-1">CRP 15/8552</p>
+                   <p className="text-yasmin-olive font-medium mt-1">{CONTACT_INFO.crp}</p>
                 </div>
 
                 <div className="order-1 md:order-2 flex justify-center flex-1">

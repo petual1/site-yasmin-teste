@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MessageCircle } from 'lucide-react';
+import { CONTACT_INFO, WHATSAPP_LINK } from '../constants'; 
 
 const FloatingWhatsApp = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,7 +46,7 @@ const FloatingWhatsApp = () => {
         }`}
     >
       <a 
-        href="https://wa.me/5582982171705" 
+        href={WHATSAPP_LINK} 
         target="_blank" 
         rel="noopener noreferrer"
         className={`group flex items-center justify-start overflow-hidden 
@@ -73,7 +74,7 @@ const FloatingWhatsApp = () => {
                 Falar Agora
             </span>
             <span className="font-sans font-bold text-lg lg:text-lg 2xl:text-xl tracking-wide">
-                (82) 98217-1705
+                {CONTACT_INFO.whatsappDisplay}
             </span>
         </div>
       </a>

@@ -89,7 +89,7 @@ const Therapy = () => {
           </div>
 
           <div className="space-y-6 lg:space-y-8 mt-8 lg:mt-0">
-             {benefits.map((item, idx) => (
+             {benefits?.map((item, idx) => (
                <div 
                  key={idx} 
                  style={{ transitionDelay: `${idx * 150}ms` }} 

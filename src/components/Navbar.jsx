@@ -1,11 +1,9 @@
-// -imports-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import logoIcon from '../assets/logo-icon.png';
+import { WHATSAPP_LINK } from '../constants'; 
 
-// -component-
 const Navbar = () => {
-  // -states-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [navState, setNavState] = useState({
     opacity: 0,
@@ -13,7 +11,6 @@ const Navbar = () => {
     translateY: 0
   });
 
-  // -effects-
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : '';
   }, [isMenuOpen]);
@@ -58,13 +55,11 @@ const Navbar = () => {
     };
   }, []);
 
-  // -variables-
   const isDesktop = typeof window !== 'undefined' && window.innerWidth > 1024;
   const isLargeScreen = typeof window !== 'undefined' && window.innerWidth >= 1536;
   const baseLogoSize = isLargeScreen ? 96 : 72;
   
   const logoHeight = isDesktop ? baseLogoSize - (navState.opacity * (isLargeScreen ? 20 : 12)) : 48;
-  
   const basePadding = isLargeScreen ? 24 : 16;
   const containerPadding = isDesktop ? basePadding - (navState.opacity * 8) : 16;
 
@@ -75,7 +70,6 @@ const Navbar = () => {
     borderBottom: (navState.opacity > 0.1 && !isMenuOpen) ? '1px solid rgba(0,0,0,0.05)' : '1px solid transparent'
   };
 
-  // -jsx-
   return (
     <>
       <nav 
@@ -118,7 +112,12 @@ const Navbar = () => {
                 Dúvidas
             </a>
             
-            <a href="#contato" className="ml-4 2xl:ml-6 px-6 2xl:px-8 py-2.5 2xl:py-3 bg-yasmin-olive text-white rounded-full hover:bg-yasmin-olive/90 shadow-md hover:shadow-lg transition hover:-translate-y-0.5 transform font-sans">
+            <a 
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-4 2xl:ml-6 px-6 2xl:px-8 py-2.5 2xl:py-3 bg-yasmin-olive text-white rounded-full hover:bg-yasmin-olive/90 shadow-md hover:shadow-lg transition hover:-translate-y-0.5 transform font-sans"
+            >
               Agendar
             </a>
           </div>
@@ -156,7 +155,9 @@ const Navbar = () => {
             <div className="w-16 h-px bg-yasmin-olive/20 my-2"></div>
 
             <a 
-              href="#contato" 
+              href={WHATSAPP_LINK} 
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsMenuOpen(false)} 
               className="w-full max-w-xs h-12 flex items-center justify-center bg-yasmin-olive text-white text-center text-lg font-bold font-sans tracking-wide rounded-full shadow-lg active:scale-95 transition-transform"
             >

@@ -1,16 +1,11 @@
-// -imports-
 import React, { useEffect, useState, useRef } from 'react';
 import fotoYasmin from '../assets/yasmin-sofa.jpg';
+import { CONTACT_INFO } from '../constants'; 
 
-// -component-
 const About = () => {
-  // -states-
   const [isVisible, setIsVisible] = useState(false);
-  
-  // -refs-
   const sectionRef = useRef(null);
 
-  // -effects-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -24,7 +19,6 @@ const About = () => {
     };
   }, []);
 
-  // -jsx-
   return (
     <section id="sobre" className="py-16 lg:py-24 2xl:py-32 relative overflow-hidden bg-yasmin-base">
        
@@ -85,7 +79,7 @@ const About = () => {
           <div className="md:mt-auto bg-white/70 backdrop-blur-xl border border-white/80 p-8 lg:p-8 2xl:p-12 rounded-[2.5rem] shadow-sm relative overflow-hidden group hover:shadow-lg transition-all duration-500 z-10 mx-auto md:mx-0 w-full max-w-sm md:max-w-none text-left">
             <div className="flex items-center gap-3 mb-6 lg:mb-8 justify-center md:justify-start">
                 <div className="h-px w-10 bg-yasmin-rose"></div>
-                <span className="text-yasmin-olive font-semibold tracking-widest text-sm font-sans">CRP 15/8552</span>
+                <span className="text-yasmin-olive font-semibold tracking-widest text-sm font-sans">{CONTACT_INFO.crp}</span>
             </div>
             
             <div className="space-y-4 lg:space-y-5 2xl:space-y-6 text-gray-700 text-lg 2xl:text-xl leading-relaxed font-sans font-light relative z-10">

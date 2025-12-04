@@ -77,13 +77,13 @@ const Problems = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-6 2xl:gap-8 items-stretch">
-          {problems.map((item, idx) => (
+          {problems?.map((item, idx) => (
             <div 
                 key={idx} 
                 style={{ transitionDelay: `${idx * 150}ms` }}
                 className="group relative bg-white/80 backdrop-blur-sm p-8 2xl:p-10 pt-12 rounded-[2.5rem] border border-yasmin-olive/10 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden h-full flex flex-col"
             >
-              <span className="absolute -top-4 -right-4 text-[6rem] 2xl:text-[8rem] font-serif text-yasmin-sage/30 font-bold leading-none select-none transition-transform duration-500 group-hover:scale-110 group-hover:text-yasmin-rose/30">
+              <span className="absolute -top-2 -right-2 md:-top-4 md:-right-4 text-[5rem] md:text-[6rem] 2xl:text-[8rem] font-serif text-yasmin-sage/30 font-bold leading-none select-none transition-transform duration-500 group-hover:scale-110 group-hover:text-yasmin-rose/30">
                 {item.id}
               </span>
 
