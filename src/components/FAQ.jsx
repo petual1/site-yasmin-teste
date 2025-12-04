@@ -12,11 +12,11 @@ const FAQ = () => {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 }
+      { threshold: 0.15 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
+      if (sectionRef.current) observer.disconnect();
     };
   }, []);
 
@@ -56,12 +56,11 @@ const FAQ = () => {
   const halfButton = "w-full h-1/2 flex items-center justify-center text-base 2xl:text-lg font-bold gap-2";
 
   return (
-    <section id="duvidas" className="pt-20 lg:pt-24 2xl:pt-32 pb-10 bg-[#FCFDF5] relative overflow-hidden z-10 w-full max-w-[100vw]">
+    <section ref={sectionRef} id="duvidas" className="pt-20 lg:pt-24 2xl:pt-32 pb-10 bg-[#FCFDF5] relative overflow-hidden z-10 w-full max-w-[100vw]">
       
       <div className="absolute top-0 left-0 w-[40rem] h-[40rem] border border-yasmin-olive/5 rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
       
       <div 
-        ref={sectionRef}
         className={`max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-16 2xl:gap-20 items-start relative z-10 transition-all duration-1000 ease-out transform ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
         }`}

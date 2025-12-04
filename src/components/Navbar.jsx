@@ -105,17 +105,21 @@ const Navbar = () => {
             <a href="#sobre" className="px-4 2xl:px-5 py-2.5 rounded-full hover:bg-[#FCFDF5] hover:text-yasmin-rose transition-all duration-300 font-sans">
                 Sobre Mim
             </a>
+            
             <a href="#terapia" className="px-4 2xl:px-5 py-2.5 rounded-full hover:bg-[#FCFDF5] hover:text-yasmin-rose transition-all duration-300 font-sans">
                 A Terapia
             </a> 
+
+            <a href="#aterapia" className="px-4 2xl:px-5 py-2.5 rounded-full hover:bg-[#FCFDF5] hover:text-yasmin-rose transition-all duration-300 font-sans">
+                Abordagem
+            </a>
+
             <a href="#duvidas" className="px-4 2xl:px-5 py-2.5 rounded-full hover:bg-[#FCFDF5] hover:text-yasmin-rose transition-all duration-300 font-sans">
                 Dúvidas
             </a>
             
             <a 
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contato"
               className="ml-4 2xl:ml-6 px-6 2xl:px-8 py-2.5 2xl:py-3 bg-yasmin-olive text-white rounded-full hover:bg-yasmin-olive/90 shadow-md hover:shadow-lg transition hover:-translate-y-0.5 transform font-sans"
             >
               Agendar
@@ -150,14 +154,13 @@ const Navbar = () => {
           <nav className="flex flex-col items-center gap-8 relative z-10 w-full px-8">
             <a href="#sobre" onClick={() => setIsMenuOpen(false)} className="text-2xl font-serif text-yasmin-olive hover:text-yasmin-rose transition-colors">Sobre Mim</a>
             <a href="#terapia" onClick={() => setIsMenuOpen(false)} className="text-2xl font-serif text-yasmin-olive hover:text-yasmin-rose transition-colors">A Terapia</a> 
+            <a href="#aterapia" onClick={() => setIsMenuOpen(false)} className="text-2xl font-serif text-yasmin-olive hover:text-yasmin-rose transition-colors">Abordagem</a>
             <a href="#duvidas" onClick={() => setIsMenuOpen(false)} className="text-2xl font-serif text-yasmin-olive hover:text-yasmin-rose transition-colors">Dúvidas</a>
             
             <div className="w-16 h-px bg-yasmin-olive/20 my-2"></div>
 
             <a 
-              href={WHATSAPP_LINK} 
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contato" 
               onClick={() => setIsMenuOpen(false)} 
               className="w-full max-w-xs h-12 flex items-center justify-center bg-yasmin-olive text-white text-center text-lg font-bold font-sans tracking-wide rounded-full shadow-lg active:scale-95 transition-transform"
             >

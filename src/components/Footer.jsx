@@ -13,11 +13,11 @@ const Footer = () => {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 }
+      { threshold: 0.15 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
+      if (sectionRef.current) observer.disconnect();
     };
   }, []);
 
@@ -32,7 +32,7 @@ const Footer = () => {
   const cardBaseStyle = "group flex flex-col items-center justify-start h-full w-full p-8 lg:p-8 2xl:p-10 rounded-3xl bg-white/60 backdrop-blur-md border border-white/60 shadow-sm hover:shadow-md hover:bg-white transition-all duration-300";
 
   return (
-    <footer id="contato" className="relative min-h-screen flex flex-col pt-12 pb-8 overflow-hidden bg-yasmin-base max-w-[100vw]">
+    <footer ref={sectionRef} id="contato" className="relative min-h-screen flex flex-col pt-12 pb-8 overflow-hidden bg-yasmin-base max-w-[100vw]">
       
       <div className="absolute top-0 left-0 w-full h-48 md:h-64 bg-gradient-to-b from-[#FCFDF5] via-[#FCFDF5]/80 to-transparent pointer-events-none z-30"></div>
       
@@ -48,7 +48,6 @@ const Footer = () => {
       </div>
       
       <div 
-        ref={sectionRef}
         className={`w-full max-w-6xl mx-auto px-6 relative z-40 flex-grow transition-all duration-1000 ease-out transform ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
         }`}
@@ -158,7 +157,7 @@ const Footer = () => {
                     <img 
                       src={logoFull} 
                       alt="Yasmin Mello Psicologia" 
-                      className="h-16 lg:h-20 2xl:h-24 w-auto object-contain hover:opacity-90 transition-opacity block" 
+                      className="h-20 lg:h-20 2xl:h-24 w-auto object-contain hover:opacity-90 transition-opacity block md:translate-y-3" 
                     />
                 </div>
 

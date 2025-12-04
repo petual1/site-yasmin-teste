@@ -11,16 +11,16 @@ const About = () => {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 }
+      { threshold: 0.2 } 
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
+      if (sectionRef.current) observer.disconnect();
     };
   }, []);
 
   return (
-    <section id="sobre" className="py-16 lg:py-24 2xl:py-32 relative overflow-hidden bg-yasmin-base">
+    <section ref={sectionRef} id="sobre" className="py-16 lg:py-24 2xl:py-32 relative overflow-hidden bg-yasmin-base">
        
        <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-[#FCFDF5] via-[#FCFDF5]/60 to-transparent pointer-events-none z-20"></div>
        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-yasmin-base via-yasmin-base/80 to-transparent pointer-events-none z-10"></div>
@@ -45,7 +45,6 @@ const About = () => {
        </svg>
 
       <div 
-        ref={sectionRef}
         className={`max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 2xl:gap-20 items-stretch relative z-30 transition-all duration-1000 ease-out transform ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
         }`}

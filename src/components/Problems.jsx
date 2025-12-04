@@ -1,27 +1,22 @@
-// -imports-
 import React, { useEffect, useState, useRef } from 'react';
 
-// -component-
 const Problems = () => {
-  // -states-
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  // -effects-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 } 
+      { threshold: 0.15 } 
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
+      if (sectionRef.current) observer.disconnect();
     };
   }, []);
 
-  // -data-
   const problems = [
     { 
       id: "01",
@@ -40,11 +35,9 @@ const Problems = () => {
     }
   ];
 
-  // -jsx-
   return (
-    <section id="terapia" className="py-24 lg:py-24 2xl:py-32 px-6 relative bg-yasmin-base overflow-hidden z-20 w-full max-w-[100vw]">
+    <section ref={sectionRef} id="terapia" className="py-24 lg:py-24 2xl:py-32 px-6 relative bg-yasmin-base overflow-hidden z-20 w-full max-w-[100vw]">
       
-      {/* -background- */}
       <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-[#FCFDF5] via-[#FCFDF5]/60 to-transparent pointer-events-none z-20"></div>
 
       <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
@@ -56,9 +49,7 @@ const Problems = () => {
           <path d="M-100 160 C 200 160, 400 60, 720 160 C 1040 260, 1240 160, 1540 160" stroke="currentColor" strokeWidth="2" strokeDasharray="10 10"/>
       </svg>
 
-      {/* -content- */}
       <div 
-        ref={sectionRef}
         className={`max-w-7xl mx-auto relative z-30 transition-all duration-1000 ease-out transform ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
         }`}

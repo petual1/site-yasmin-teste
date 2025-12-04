@@ -1,28 +1,23 @@
-// -imports-
 import React, { useEffect, useState, useRef } from 'react';
 import { Brain, Heart, Sparkles, ArrowDown } from 'lucide-react';
 
-// -component-
 const Therapy = () => {
-  // -states-
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  // -effects-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 }
+      { threshold: 0.15 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
+      if (sectionRef.current) observer.disconnect();
     };
   }, []);
 
-  // -data-
   const benefits = [
     {
       icon: <Brain size={28} className="lg:w-8 lg:h-8" />, 
@@ -41,15 +36,13 @@ const Therapy = () => {
     }
   ];
 
-  // -jsx-
   return (
-    <section id="aterapia" className="py-24 lg:py-24 2xl:py-32 relative bg-yasmin-olive text-yasmin-base overflow-hidden w-full max-w-[100vw]">
+    <section ref={sectionRef} id="aterapia" className="py-24 lg:py-24 2xl:py-32 relative bg-yasmin-olive text-yasmin-base overflow-hidden w-full max-w-[100vw]">
       
       <div className="absolute top-0 right-0 w-[45rem] h-[45rem] border border-white/30 rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[35rem] h-[35rem] border border-white/30 rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
 
       <div 
-        ref={sectionRef}
         className={`max-w-7xl mx-auto px-6 relative z-10 transition-all duration-1000 ease-out transform ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
         }`}
