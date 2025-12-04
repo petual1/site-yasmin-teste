@@ -84,7 +84,7 @@ const Footer = () => {
                         </div>
                         <div className={`${sliderHalfButton} bg-white text-yasmin-olive font-mono`}>
                             <MessageCircle size={22} className="fill-current" />
-                            <span className="tracking-tight text-base">+55 82 8217-1705</span>
+                            <span className="tracking-tight text-base">+55 82 98217-1705</span>
                         </div>
                     </div>
                 </a>
@@ -96,7 +96,7 @@ const Footer = () => {
               className={`md:hidden ${fixedMobileButton} w-full`}
             >
                 <MessageCircle size={22} />
-                <span className="font-sans tracking-wider text-base">+55 82 8217-1705</span>
+                <span className="font-sans tracking-wider text-base">+55 82 98217-1705</span>
             </a>
           </div>
 

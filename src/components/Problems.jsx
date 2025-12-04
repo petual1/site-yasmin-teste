@@ -58,7 +58,7 @@ const Problems = () => {
          <div className="absolute bottom-0 -right-[20rem] w-[50rem] h-[50rem] bg-yasmin-rose/30 rounded-full filter blur-[150px] opacity-60 animate-blob animation-delay-2000"></div>
       </div>
 
-      <svg className="absolute top-[60%] left-0 w-full h-[500px] -translate-y-1/2 text-yasmin-sage/10 pointer-events-none hidden md:block z-0" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="absolute top-[60%] left-0 w-full h-[500px] -translate-y-1/2 text-yasmin-sage/40 pointer-events-none hidden md:block z-0" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M-100 160 C 200 160, 400 60, 720 160 C 1040 260, 1240 160, 1540 160" stroke="currentColor" strokeWidth="2" strokeDasharray="10 10"/>
       </svg>
 
@@ -82,14 +82,14 @@ const Problems = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 items-start">
+        <div className="grid md:grid-cols-3 gap-8 items-stretch">
           {problems.map((item, idx) => (
             <div 
                 key={idx} 
                 style={{ transitionDelay: `${idx * 150}ms` }}
-                className="group relative bg-white/80 backdrop-blur-sm p-10 pt-12 rounded-[2.5rem] border border-yasmin-olive/10 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+                className="group relative bg-white/80 backdrop-blur-sm p-10 pt-12 rounded-[2.5rem] border border-yasmin-olive/10 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden h-full flex flex-col"
             >
-              <span className="absolute -top-4 -right-4 text-[8rem] font-serif text-yasmin-sage/10 font-bold leading-none select-none transition-transform duration-500 group-hover:scale-110 group-hover:text-yasmin-rose/10">
+              <span className="absolute -top-4 -right-4 text-[8rem] font-serif text-yasmin-sage/30 font-bold leading-none select-none transition-transform duration-500 group-hover:scale-110 group-hover:text-yasmin-rose/30">
                 {item.id}
               </span>
 
@@ -105,7 +105,7 @@ const Problems = () => {
               <h3 className="text-2xl font-serif text-yasmin-olive mb-4 relative z-10">
                 {item.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed font-sans font-light relative z-10">
+              <p className="text-gray-600 leading-relaxed font-sans font-light relative z-10 flex-grow">
                 {item.text}
               </p>
 

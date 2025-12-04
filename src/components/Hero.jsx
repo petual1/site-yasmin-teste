@@ -15,7 +15,7 @@ const Hero = () => {
 
   // -jsx-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 pt-20 bg-gradient-to-br from-yasmin-sage/30 via-[#FCFDF5] to-yasmin-rose/30">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-12 md:py-0 bg-gradient-to-br from-yasmin-sage/30 via-[#FCFDF5] to-yasmin-rose/30">
       
       {/* -watermark- */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
@@ -35,19 +35,19 @@ const Hero = () => {
       </div>
 
       {/* -content- */}
-      <div className="relative z-10 text-center w-full max-w-7xl mx-auto flex flex-col items-center pb-32">
+      <div className="relative z-10 text-center w-full max-w-7xl mx-auto flex flex-col items-center justify-center md:h-screen">
         
         {/* -logo- */}
-        <div className="w-full px-4 mb-12 md:mb-20">
+        <div className="w-full px-4 mb-8 md:mb-14 flex justify-center">
             <img 
                 src={logoFull} 
                 alt="Yasmin Mello Psicóloga" 
-                className="w-full max-w-xs md:max-w-5xl mx-auto h-auto object-contain drop-shadow-sm animate-fade-in-up" 
+                className="w-full max-w-xs md:max-w-4xl mx-auto h-auto object-contain drop-shadow-sm animate-fade-in-up" 
             />
         </div>
         
         {/* -mobile buttons- */}
-        <div className="flex flex-col w-full max-w-sm gap-4 md:hidden animate-fade-in-up animation-delay-300 px-4">
+        <div className="flex flex-col w-full max-w-sm gap-4 md:hidden animate-fade-in-up animation-delay-300 px-4 mb-8">
             <a 
               href="https://wa.me/558282171705" 
               target="_blank" 
@@ -71,7 +71,7 @@ const Hero = () => {
         </div>
 
         {/* -desktop buttons- */}
-        <div className="hidden md:flex flex-row gap-6 w-full justify-center items-center animate-fade-in-up animation-delay-300">
+        <div className="hidden md:flex flex-row gap-6 w-full justify-center items-center animate-fade-in-up animation-delay-300 pb-20">
           
           <div className={desktopButtonWrapper}>
             <a href="https://wa.me/558282171705" target="_blank" className="block w-full h-full relative">
@@ -79,7 +79,7 @@ const Hero = () => {
                     <div className={`${desktopHalfButton}`}>Agendar Primeira Sessão</div>
                     <div className={`${desktopHalfButton} bg-white/50 text-green-800 gap-2 font-sans`}>
                         <MessageCircle size={22} className="text-green-600 fill-current" />
-                        <span className="font-mono tracking-wider">+55 82 8217-1705</span>
+                        <span className="font-mono tracking-wider">+55 82 98217-1705</span>
                     </div>
                 </div>
             </a>
@@ -100,7 +100,7 @@ const Hero = () => {
       </div>
 
       {/* -fade- */}
-      <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-[#FCFDF5] via-[#FCFDF5]/30 to-transparent pointer-events-none z-20"></div>
+      <div className="absolute bottom-0 left-0 w-full h-24 md:h-32 bg-gradient-to-t from-[#FCFDF5] via-[#FCFDF5]/30 to-transparent pointer-events-none z-20"></div>
 
     </section>
   );

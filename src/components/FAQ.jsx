@@ -96,7 +96,7 @@ const FAQ = () => {
                         </div>
                         <div className={`${halfButton} bg-yasmin-cream text-yasmin-olive`}>
                             <MessageCircle size={20} className="fill-current" />
-                            <span className="font-mono tracking-tight text-base">+55 82 8217-1705</span>
+                            <span className="font-mono tracking-tight text-base">+55 82 98217-1705</span>
                         </div>
                     </div>
                 </a>
