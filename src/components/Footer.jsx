@@ -37,6 +37,8 @@ const Footer = () => {
   
   const fixedMobileButton = "flex items-center justify-center w-full h-14 bg-yasmin-olive text-white rounded-full shadow-xl hover:bg-yasmin-olive/95 transition-colors duration-300 gap-2 text-lg font-bold font-sans";
 
+  const cardBaseStyle = "group flex flex-col items-center justify-start h-full w-full p-8 lg:p-8 2xl:p-10 rounded-3xl bg-white/60 backdrop-blur-md border border-white/60 shadow-sm hover:shadow-md hover:bg-white transition-all duration-300";
+
   // -jsx-
   return (
     <footer id="contato" className="relative min-h-screen flex flex-col pt-12 pb-8 overflow-hidden bg-yasmin-base max-w-[100vw]">
@@ -82,9 +84,10 @@ const Footer = () => {
                             <MessageCircle size={22} />
                             <span>Agendar Sessão</span>
                         </div>
-                        <div className={`${sliderHalfButton} bg-white text-yasmin-olive font-mono`}>
+                        
+                        <div className={`${sliderHalfButton} text-white font-sans`}>
                             <MessageCircle size={22} className="fill-current" />
-                            <span className="tracking-tight text-base">+55 82 98217-1705</span>
+                            <span className="font-sans font-bold tracking-wide text-lg 2xl:text-xl">(82) 98217-1705</span>
                         </div>
                     </div>
                 </a>
@@ -96,7 +99,7 @@ const Footer = () => {
               className={`md:hidden ${fixedMobileButton} w-full`}
             >
                 <MessageCircle size={22} />
-                <span className="font-sans tracking-wider text-base">+55 82 98217-1705</span>
+                <span className="font-sans font-bold tracking-wide text-lg">(82) 98217-1705</span>
             </a>
           </div>
 
@@ -105,34 +108,43 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4 lg:gap-5 2xl:gap-8 mb-12">
+        <div className="grid md:grid-cols-3 gap-4 lg:gap-5 2xl:gap-8 mb-12 items-stretch">
             
-            {/* CARD INSTAGRAM */}
-            <a href="https://instagram.com/psi.yasminmello" target="_blank" className="group flex flex-col items-center justify-center p-6 lg:p-5 2xl:p-8 rounded-3xl bg-white/60 backdrop-blur-md border border-white/60 shadow-sm hover:shadow-md hover:bg-white transition-all duration-300">
-                <div className="mb-3 p-3 bg-white rounded-full text-yasmin-rose shadow-sm group-hover:scale-110 transition-transform">
+            <a href="https://instagram.com/psi.yasminmello" target="_blank" className={cardBaseStyle}>
+                <div className="mb-4 p-3 bg-white rounded-full text-yasmin-rose shadow-sm group-hover:scale-110 transition-transform flex-shrink-0">
                     <Instagram size={24} className="2xl:w-7 2xl:h-7" />
                 </div>
-                <span className="text-xs text-gray-500 uppercase tracking-wider font-light mb-1 font-sans">Instagram</span>
+                <span className="text-xs text-gray-500 uppercase tracking-wider font-light mb-2 font-sans">Instagram</span>
                 <span className="text-base 2xl:text-lg font-serif text-yasmin-olive">@psi.yasminmello</span>
             </a>
 
-            {/* CARD EMAIL */}
-            <a href="mailto:yasminmello.psi@gmail.com" className="group flex flex-col items-center justify-center p-6 lg:p-5 2xl:p-8 rounded-3xl bg-white/60 backdrop-blur-md border border-white/60 shadow-sm hover:shadow-md hover:bg-white transition-all duration-300">
-                <div className="mb-3 p-3 bg-white rounded-full text-yasmin-rose shadow-sm group-hover:scale-110 transition-transform">
+            <a href="mailto:yasminmello.psi@gmail.com" className={cardBaseStyle}>
+                <div className="mb-4 p-3 bg-white rounded-full text-yasmin-rose shadow-sm group-hover:scale-110 transition-transform flex-shrink-0">
                     <Mail size={24} className="2xl:w-7 2xl:h-7" />
                 </div>
-                <span className="text-xs text-gray-500 uppercase tracking-wider font-light mb-1 font-sans">Email</span>
+                <span className="text-xs text-gray-500 uppercase tracking-wider font-light mb-2 font-sans">Email</span>
                 <span className="text-sm 2xl:text-base font-serif text-yasmin-olive break-all text-center">yasminmello.psi@gmail.com</span>
             </a>
 
-            {/* CARD LOCAL */}
-            <div className="group flex flex-col items-center justify-center p-6 lg:p-5 2xl:p-8 rounded-3xl bg-white/60 backdrop-blur-md border border-white/60 shadow-sm cursor-default">
-                <div className="mb-3 p-3 bg-white rounded-full text-yasmin-rose shadow-sm group-hover:scale-110 transition-transform">
+            <a 
+               href="https://www.google.com/maps/search/?api=1&query=Edifício+203+Office+Av+Dom+Antônio+Brandão+Farol+Maceió"
+               target="_blank"
+               rel="noopener noreferrer"
+               className={cardBaseStyle}
+            >
+                <div className="mb-4 p-3 bg-white rounded-full text-yasmin-rose shadow-sm group-hover:scale-110 transition-transform flex-shrink-0">
                     <MapPin size={24} className="2xl:w-7 2xl:h-7" />
                 </div>
-                <span className="text-xs text-gray-500 uppercase tracking-wider font-light mb-1 font-sans">Atendimento</span>
-                <span className="text-base 2xl:text-lg font-serif text-yasmin-olive text-center leading-tight">Online & Presencial</span>
-            </div>
+                
+                <span className="text-xs text-gray-500 uppercase tracking-wider font-light mb-2 font-sans">Atendimento</span>
+                <span className="text-base 2xl:text-lg font-serif text-yasmin-olive text-center leading-tight mb-4">Online & Presencial</span>
+                
+                <div className="text-center font-sans text-sm text-gray-600 leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
+                    <p>Av. Dom Antônio Brandão, 203</p>
+                    <p>Farol, Maceió - AL</p>
+                    <p className="text-xs font-semibold text-yasmin-olive mt-2 tracking-wide uppercase">Edifício 203 Office</p>
+                </div>
+            </a>
         </div>
 
       </div>
@@ -142,7 +154,7 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row items-center md:items-end justify-between gap-8 md:gap-4">
                 
                 <div className="text-xs text-gray-500 font-light text-center md:text-left order-2 md:order-1 flex-1 font-sans">
-                   <p>&copy; {new Date().getFullYear()} Yasmin Mello.</p>
+                   <p>© {new Date().getFullYear()} Yasmin Mello.</p>
                    <p className="text-yasmin-olive font-medium mt-1">CRP 15/8552</p>
                 </div>
 

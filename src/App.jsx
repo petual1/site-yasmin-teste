@@ -6,6 +6,7 @@ import Problems from './components/Problems';
 import Therapy from './components/Therapy';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import FloatingWhatsApp from './components/FloatingWhatsApp'; 
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Therapy />
       <FAQ />
       <Footer />
+      <FloatingWhatsApp /> 
     </div>
   );
 };

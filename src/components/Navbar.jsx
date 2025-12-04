@@ -21,7 +21,6 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
       const isMobile = window.innerWidth < 1024; 
       
       const heroProgress = Math.min(1, scrollY / 150);
@@ -33,11 +32,11 @@ const Navbar = () => {
         const footerElement = document.getElementById('contato');
         if (footerElement) {
           const footerRect = footerElement.getBoundingClientRect();
-          const triggerPoint = windowHeight - 80; 
+          const triggerPoint = 100; 
 
           if (footerRect.top < triggerPoint) {
               const dist = triggerPoint - footerRect.top;
-              footerVisibility = Math.max(0, 1 - (dist / 200));
+              footerVisibility = Math.max(0, 1 - (dist / 100));
               translateVal = footerVisibility < 1 ? -20 : 0;
           }
         }
@@ -70,7 +69,6 @@ const Navbar = () => {
   const containerPadding = isDesktop ? basePadding - (navState.opacity * 8) : 16;
 
   const navStyle = {
-    backgroundColor: isMenuOpen ? 'transparent' : `rgba(255, 255, 255, ${navState.opacity * 0.9})`,
     opacity: navState.visibility, 
     transform: `translateY(${navState.translateY}px)`,
     pointerEvents: 'auto',
@@ -82,13 +80,16 @@ const Navbar = () => {
     <>
       <nav 
           style={navStyle}
-          className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ease-out ${
-            navState.opacity > 0 ? 'backdrop-blur-md' : ''
-          }`}
+          className="fixed top-0 left-0 w-full z-[100] transition-all duration-300 ease-out"
       >
         <div 
+            className="absolute inset-0 w-full h-full bg-gradient-to-r from-yasmin-sage/20 via-[#FCFDF5] to-yasmin-rose/20 backdrop-blur-md transition-opacity duration-300 pointer-events-none"
+            style={{ opacity: isMenuOpen ? 0 : (navState.opacity * 0.95) }}
+        ></div>
+
+        <div 
           style={{ paddingTop: `${containerPadding}px`, paddingBottom: `${containerPadding}px` }}
-          className="max-w-7xl mx-auto px-6 flex justify-between items-center"
+          className="relative max-w-7xl mx-auto px-6 flex justify-between items-center"
         >
           
           <a 
@@ -107,10 +108,17 @@ const Navbar = () => {
           
           {/* -menu desktop- */}
           <div className="hidden lg:flex items-center space-x-2 2xl:space-x-4 text-xs 2xl:text-sm font-bold tracking-widest uppercase text-yasmin-olive transition-all duration-300">
-            <a href="#sobre" className="px-3 2xl:px-4 py-2 rounded-full hover:bg-white/50 transition font-sans">Sobre Mim</a>
-            <a href="#terapia" className="px-3 2xl:px-4 py-2 rounded-full hover:bg-white/50 transition font-sans">A Terapia</a> 
-            <a href="#duvidas" className="px-3 2xl:px-4 py-2 rounded-full hover:bg-white/50 transition font-sans">Dúvidas</a>
-            <a href="#contato" className="ml-4 2xl:ml-6 px-6 2xl:px-8 py-2.5 2xl:py-3 bg-yasmin-olive text-white rounded-full hover:bg-yasmin-olive/90 shadow-md hover:shadow-lg transition hover:-translate-y-0.5 transform">
+            <a href="#sobre" className="px-4 2xl:px-5 py-2.5 rounded-full hover:bg-[#FCFDF5] hover:text-yasmin-rose transition-all duration-300 font-sans">
+                Sobre Mim
+            </a>
+            <a href="#terapia" className="px-4 2xl:px-5 py-2.5 rounded-full hover:bg-[#FCFDF5] hover:text-yasmin-rose transition-all duration-300 font-sans">
+                A Terapia
+            </a> 
+            <a href="#duvidas" className="px-4 2xl:px-5 py-2.5 rounded-full hover:bg-[#FCFDF5] hover:text-yasmin-rose transition-all duration-300 font-sans">
+                Dúvidas
+            </a>
+            
+            <a href="#contato" className="ml-4 2xl:ml-6 px-6 2xl:px-8 py-2.5 2xl:py-3 bg-yasmin-olive text-white rounded-full hover:bg-yasmin-olive/90 shadow-md hover:shadow-lg transition hover:-translate-y-0.5 transform font-sans">
               Agendar
             </a>
           </div>

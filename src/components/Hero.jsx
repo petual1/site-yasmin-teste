@@ -79,9 +79,10 @@ const Hero = () => {
             <a href="https://wa.me/558282171705" target="_blank" className="block w-full h-full relative">
                 <div className={sliderContainer}>
                     <div className={`${desktopHalfButton}`}>Agendar Primeira Sessão</div>
-                    <div className={`${desktopHalfButton} bg-white/50 text-green-800 gap-2 font-sans`}>
-                        <MessageCircle size={22} className="text-green-600 fill-current" />
-                        <span className="font-mono tracking-wider text-sm 2xl:text-lg">+55 82 98217-1705</span>
+                    
+                    <div className={`${desktopHalfButton} text-yasmin-olive gap-2 font-sans`}>
+                        <MessageCircle size={22} className="fill-current" />
+                        <span className="font-sans font-bold tracking-wide text-lg 2xl:text-xl">(82) 98217-1705</span>
                     </div>
                 </div>
             </a>

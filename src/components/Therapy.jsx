@@ -43,7 +43,7 @@ const Therapy = () => {
 
   // -jsx-
   return (
-    <section id="terapia" className="py-24 lg:py-24 2xl:py-32 relative bg-yasmin-olive text-yasmin-base overflow-hidden w-full max-w-[100vw]">
+    <section id="aterapia" className="py-24 lg:py-24 2xl:py-32 relative bg-yasmin-olive text-yasmin-base overflow-hidden w-full max-w-[100vw]">
       
       <div className="absolute top-0 right-0 w-[45rem] h-[45rem] border border-white/30 rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[35rem] h-[35rem] border border-white/30 rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
