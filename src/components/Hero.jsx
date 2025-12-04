@@ -6,10 +6,12 @@ import logoIcon from '../assets/logo-icon.png';
 
 // -component-
 const Hero = () => {
-  // -styles-
-  const desktopButtonWrapper = "group relative w-80 h-16 rounded-full shadow-lg border border-white/60 bg-white/40 backdrop-blur-md overflow-hidden cursor-pointer hover:shadow-2xl hover:bg-white/60 transition-all duration-300";
+  const desktopButtonWrapper = "group relative rounded-full shadow-lg border border-white/60 bg-white/40 backdrop-blur-md overflow-hidden cursor-pointer hover:shadow-2xl hover:bg-white/60 transition-all duration-300 w-64 h-14 2xl:w-80 2xl:h-16";
+  
   const sliderContainer = "absolute w-full h-[200%] top-0 flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-1/2";
-  const desktopHalfButton = "w-full h-1/2 flex items-center justify-center text-lg font-bold text-yasmin-olive";
+  
+  const desktopHalfButton = "w-full h-1/2 flex items-center justify-center font-bold text-yasmin-olive text-base 2xl:text-lg";
+  
   const fixedPrimaryButton = "flex items-center justify-center w-full h-14 bg-yasmin-olive text-white rounded-full shadow-lg hover:bg-yasmin-olive/90 transition-colors duration-300 gap-2 text-lg font-bold font-sans";
   const fixedSecondaryButton = "flex items-center justify-center w-full h-14 bg-white/60 backdrop-blur-md border border-white/80 text-yasmin-rose rounded-full shadow-md hover:bg-white transition-colors duration-300 gap-2 text-lg font-bold font-sans";
 
@@ -47,7 +49,7 @@ const Hero = () => {
         </div>
         
         {/* -mobile buttons- */}
-        <div className="flex flex-col w-full max-w-sm gap-4 md:hidden animate-fade-in-up animation-delay-300 px-4 mb-8">
+        <div className="flex flex-col w-full max-w-sm gap-4 lg:hidden animate-fade-in-up animation-delay-300 px-4 mb-8">
             <a 
               href="https://wa.me/558282171705" 
               target="_blank" 
@@ -71,7 +73,7 @@ const Hero = () => {
         </div>
 
         {/* -desktop buttons- */}
-        <div className="hidden md:flex flex-row gap-6 w-full justify-center items-center animate-fade-in-up animation-delay-300 pb-20">
+        <div className="hidden lg:flex flex-row gap-4 2xl:gap-6 w-full justify-center items-center animate-fade-in-up animation-delay-300 pb-20">
           
           <div className={desktopButtonWrapper}>
             <a href="https://wa.me/558282171705" target="_blank" className="block w-full h-full relative">
@@ -79,7 +81,7 @@ const Hero = () => {
                     <div className={`${desktopHalfButton}`}>Agendar Primeira Sessão</div>
                     <div className={`${desktopHalfButton} bg-white/50 text-green-800 gap-2 font-sans`}>
                         <MessageCircle size={22} className="text-green-600 fill-current" />
-                        <span className="font-mono tracking-wider">+55 82 98217-1705</span>
+                        <span className="font-mono tracking-wider text-sm 2xl:text-lg">+55 82 98217-1705</span>
                     </div>
                 </div>
             </a>
@@ -90,7 +92,7 @@ const Hero = () => {
                 <div className={sliderContainer}>
                     <div className={`${desktopHalfButton}`}>Sobre Mim</div>
                     <div className={`${desktopHalfButton} text-yasmin-rose`}>
-                        <ArrowDown size={32} className="animate-bounce" />
+                        <ArrowDown size={28} className="animate-bounce 2xl:w-8 2xl:h-8" />
                     </div>
                 </div>
             </a>

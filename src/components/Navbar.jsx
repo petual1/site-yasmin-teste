@@ -22,7 +22,7 @@ const Navbar = () => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
-      const isMobile = window.innerWidth < 768;
+      const isMobile = window.innerWidth < 1024; 
       
       const heroProgress = Math.min(1, scrollY / 150);
       
@@ -51,17 +51,26 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
     handleScroll(); 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+        window.removeEventListener('resize', handleScroll);
+    };
   }, []);
 
   // -variables-
-  const isDesktop = typeof window !== 'undefined' && window.innerWidth > 768;
-  const logoHeight = isDesktop ? 96 - (navState.opacity * 16) : 48;
-  const containerPadding = isDesktop ? 24 - (navState.opacity * 12) : 16;
+  const isDesktop = typeof window !== 'undefined' && window.innerWidth > 1024;
+  const isLargeScreen = typeof window !== 'undefined' && window.innerWidth >= 1536;
+  const baseLogoSize = isLargeScreen ? 96 : 72;
+  
+  const logoHeight = isDesktop ? baseLogoSize - (navState.opacity * (isLargeScreen ? 20 : 12)) : 48;
+  
+  const basePadding = isLargeScreen ? 24 : 16;
+  const containerPadding = isDesktop ? basePadding - (navState.opacity * 8) : 16;
 
   const navStyle = {
-    backgroundColor: isMenuOpen ? 'transparent' : `rgba(255, 255, 255, ${navState.opacity * 0.85})`,
+    backgroundColor: isMenuOpen ? 'transparent' : `rgba(255, 255, 255, ${navState.opacity * 0.9})`,
     opacity: navState.visibility, 
     transform: `translateY(${navState.translateY}px)`,
     pointerEvents: 'auto',
@@ -73,7 +82,9 @@ const Navbar = () => {
     <>
       <nav 
           style={navStyle}
-          className="fixed top-0 left-0 w-full z-[100] transition-all duration-300 ease-out backdrop-blur-md"
+          className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ease-out ${
+            navState.opacity > 0 ? 'backdrop-blur-md' : ''
+          }`}
       >
         <div 
           style={{ paddingTop: `${containerPadding}px`, paddingBottom: `${containerPadding}px` }}
@@ -83,29 +94,29 @@ const Navbar = () => {
           <a 
               href="#" 
               className={`flex-shrink-0 flex items-center transition-opacity duration-300 ${
-                  isMenuOpen ? 'opacity-0' : (navState.opacity > 0.1 ? 'opacity-100' : 'opacity-0 md:opacity-0')
+                  isMenuOpen ? 'opacity-0' : (navState.opacity > 0.1 ? 'opacity-100' : 'opacity-0 lg:opacity-0')
               }`}
           >
               <img 
                   src={logoIcon} 
                   alt="Yasmin Mello" 
                   style={{ height: `${logoHeight}px` }}
-                  className="object-contain"
+                  className="object-contain transition-all duration-300"
               />
           </a>
           
           {/* -menu desktop- */}
-          <div className="hidden md:flex items-center space-x-2 text-sm font-bold tracking-widest uppercase text-yasmin-olive">
-            <a href="#sobre" className="px-4 py-2 rounded-full hover:bg-white/50 transition font-sans">Sobre Mim</a>
-            <a href="#terapia" className="px-4 py-2 rounded-full hover:bg-white/50 transition font-sans">A Terapia</a> 
-            <a href="#duvidas" className="px-4 py-2 rounded-full hover:bg-white/50 transition font-sans">Dúvidas</a>
-            <a href="#contato" className="ml-6 px-8 py-3 bg-yasmin-olive text-white rounded-full hover:bg-yasmin-olive/90 shadow-md hover:shadow-lg transition hover:-translate-y-0.5 transform">
+          <div className="hidden lg:flex items-center space-x-2 2xl:space-x-4 text-xs 2xl:text-sm font-bold tracking-widest uppercase text-yasmin-olive transition-all duration-300">
+            <a href="#sobre" className="px-3 2xl:px-4 py-2 rounded-full hover:bg-white/50 transition font-sans">Sobre Mim</a>
+            <a href="#terapia" className="px-3 2xl:px-4 py-2 rounded-full hover:bg-white/50 transition font-sans">A Terapia</a> 
+            <a href="#duvidas" className="px-3 2xl:px-4 py-2 rounded-full hover:bg-white/50 transition font-sans">Dúvidas</a>
+            <a href="#contato" className="ml-4 2xl:ml-6 px-6 2xl:px-8 py-2.5 2xl:py-3 bg-yasmin-olive text-white rounded-full hover:bg-yasmin-olive/90 shadow-md hover:shadow-lg transition hover:-translate-y-0.5 transform">
               Agendar
             </a>
           </div>
 
           <button 
-              className={`md:hidden p-2 rounded-full transition-all duration-300 active:scale-95 z-[101] ${
+              className={`lg:hidden p-2 rounded-full transition-all duration-300 active:scale-95 z-[101] ${
                 isMenuOpen 
                   ? 'text-yasmin-olive' 
                   : (navState.opacity > 0.5 ? 'text-yasmin-olive' : 'bg-white/90 backdrop-blur-md text-yasmin-olive shadow-sm')
@@ -120,7 +131,7 @@ const Navbar = () => {
 
       {/* -menu mobile- */}
       <div 
-        className={`fixed inset-0 z-[90] bg-[#FCFDF5] transition-transform duration-500 cubic-bezier(0.4, 0, 0.2, 1) flex flex-col items-center justify-center space-y-8 md:hidden overflow-hidden ${
+        className={`fixed inset-0 z-[90] bg-[#FCFDF5] transition-transform duration-500 cubic-bezier(0.4, 0, 0.2, 1) flex flex-col items-center justify-center space-y-8 lg:hidden overflow-hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >

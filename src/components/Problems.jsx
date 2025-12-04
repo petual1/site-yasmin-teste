@@ -5,8 +5,6 @@ import React, { useEffect, useState, useRef } from 'react';
 const Problems = () => {
   // -states-
   const [isVisible, setIsVisible] = useState(false);
-  
-  // -refs-
   const sectionRef = useRef(null);
 
   // -effects-
@@ -17,11 +15,7 @@ const Problems = () => {
       },
       { threshold: 0.1 } 
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => {
       if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
@@ -48,7 +42,7 @@ const Problems = () => {
 
   // -jsx-
   return (
-    <section id="terapia" className="py-24 md:py-32 px-6 relative bg-yasmin-base overflow-hidden z-20 w-full max-w-[100vw]">
+    <section id="terapia" className="py-24 lg:py-24 2xl:py-32 px-6 relative bg-yasmin-base overflow-hidden z-20 w-full max-w-[100vw]">
       
       {/* -background- */}
       <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-[#FCFDF5] via-[#FCFDF5]/60 to-transparent pointer-events-none z-20"></div>
@@ -70,7 +64,7 @@ const Problems = () => {
         }`}
       >
         
-        <div className="text-center mb-20">
+        <div className="text-center mb-16 lg:mb-20">
           <span className="text-yasmin-rose font-bold tracking-[0.2em] text-sm uppercase mb-4 block">
             Identificação
           </span>
@@ -82,14 +76,14 @@ const Problems = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 items-stretch">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-6 2xl:gap-8 items-stretch">
           {problems.map((item, idx) => (
             <div 
                 key={idx} 
                 style={{ transitionDelay: `${idx * 150}ms` }}
-                className="group relative bg-white/80 backdrop-blur-sm p-10 pt-12 rounded-[2.5rem] border border-yasmin-olive/10 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden h-full flex flex-col"
+                className="group relative bg-white/80 backdrop-blur-sm p-8 2xl:p-10 pt-12 rounded-[2.5rem] border border-yasmin-olive/10 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden h-full flex flex-col"
             >
-              <span className="absolute -top-4 -right-4 text-[8rem] font-serif text-yasmin-sage/30 font-bold leading-none select-none transition-transform duration-500 group-hover:scale-110 group-hover:text-yasmin-rose/30">
+              <span className="absolute -top-4 -right-4 text-[6rem] 2xl:text-[8rem] font-serif text-yasmin-sage/30 font-bold leading-none select-none transition-transform duration-500 group-hover:scale-110 group-hover:text-yasmin-rose/30">
                 {item.id}
               </span>
 
@@ -102,10 +96,10 @@ const Problems = () => {
                   </div>
               </div>
 
-              <h3 className="text-2xl font-serif text-yasmin-olive mb-4 relative z-10">
+              <h3 className="text-xl 2xl:text-2xl font-serif text-yasmin-olive mb-4 relative z-10">
                 {item.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed font-sans font-light relative z-10 flex-grow">
+              <p className="text-gray-600 text-base 2xl:text-lg leading-relaxed font-sans font-light relative z-10 flex-grow">
                 {item.text}
               </p>
 

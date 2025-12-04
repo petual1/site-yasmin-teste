@@ -26,9 +26,8 @@ const About = () => {
 
   // -jsx-
   return (
-    <section id="sobre" className="py-16 md:py-32 relative overflow-hidden bg-yasmin-base">
+    <section id="sobre" className="py-16 lg:py-24 2xl:py-32 relative overflow-hidden bg-yasmin-base">
        
-       {/* -background- */}
        <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-[#FCFDF5] via-[#FCFDF5]/60 to-transparent pointer-events-none z-20"></div>
        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-yasmin-base via-yasmin-base/80 to-transparent pointer-events-none z-10"></div>
        
@@ -43,7 +42,7 @@ const About = () => {
            <ellipse cx="100" cy="300" rx="15" ry="40" transform="rotate(-10 100 300)" fill="currentColor" opacity="0.5"/>
        </svg>
 
-       <svg className="absolute bottom-40 right-0 w-[35rem] h-[35rem] text-yasmin-sage/30 transform translate-x-10 pointer-events-none z-0 overflow-visible" viewBox="0 0 600 600" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+       <svg className="absolute bottom-40 right-0 w-[35rem] h-[35rem] text-yasmin-sage/30 transform translate-x-20 pointer-events-none z-0 overflow-visible" viewBox="0 0 600 600" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
            <path d="M550 550 C 450 450, 200 350, 150 150" stroke="currentColor" strokeWidth="3" fill="none" opacity="0.5"/>
            <path d="M550 550 C 450 450, 350 250, 400 100" stroke="currentColor" strokeWidth="3" fill="none" opacity="0.5"/>
            <path d="M150 150 Q 100 100 150 50 Q 200 100 150 150 Z" fill="currentColor" opacity="0.7"/>
@@ -51,16 +50,15 @@ const About = () => {
            <path d="M250 300 Q 200 250 250 200 Q 300 250 250 300 Z" fill="currentColor" opacity="0.6"/>
        </svg>
 
-      {/* -content- */}
       <div 
         ref={sectionRef}
-        className={`max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-stretch relative z-30 transition-all duration-1000 ease-out transform ${
+        className={`max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 2xl:gap-20 items-stretch relative z-30 transition-all duration-1000 ease-out transform ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
         }`}
       >
         
         <div className="order-1 relative group flex justify-center md:justify-start h-full pt-10">
-           <div className="relative w-full max-w-sm md:max-w-md mx-auto md:mx-0">
+           <div className="relative w-full max-w-sm lg:max-w-[22rem] 2xl:max-w-md mx-auto md:mx-0">
                <div className="absolute inset-0 border-[2px] border-yasmin-olive/20 rounded-[3rem] transform translate-x-5 translate-y-5 transition-transform duration-700 group-hover:translate-x-3 group-hover:translate-y-3"></div>
                <div className="relative rounded-[3rem] overflow-hidden shadow-xl border-[6px] border-white h-full bg-white aspect-[3/4]">
                    <img 
@@ -75,21 +73,22 @@ const About = () => {
         
         <div className="order-2 relative flex flex-col justify-start md:justify-between h-full py-2 md:pt-10">
           
-          <div className="mb-8 md:mb-16 relative z-20 mx-auto md:mx-0 w-full max-w-sm md:max-w-none text-center md:text-left"> 
+          <div className="mb-8 md:mb-12 2xl:mb-16 relative z-20 mx-auto md:mx-0 w-full max-w-sm md:max-w-none text-center md:text-left"> 
               <span className="text-yasmin-olive/80 font-bold tracking-[0.2em] text-xs md:text-sm uppercase mb-3 block flex items-center gap-2 justify-center md:justify-start">
                 <span className="w-8 h-px bg-yasmin-olive"></span> Psicóloga Clínica
               </span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-yasmin-olive leading-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-5xl 2xl:text-6xl font-serif text-yasmin-olive leading-tight">
                 Olá, sou <span className="text-transparent bg-clip-text bg-gradient-to-r from-yasmin-olive to-yasmin-sage">Yasmin Mello</span>
               </h2>
           </div>
 
-          <div className="md:mt-auto bg-white/70 backdrop-blur-xl border border-white/80 p-8 md:p-12 rounded-[2.5rem] shadow-sm relative overflow-hidden group hover:shadow-lg transition-all duration-500 z-10 mx-auto md:mx-0 w-full max-w-sm md:max-w-none text-left">
-            <div className="flex items-center gap-3 mb-8 justify-center md:justify-start">
+          <div className="md:mt-auto bg-white/70 backdrop-blur-xl border border-white/80 p-8 lg:p-8 2xl:p-12 rounded-[2.5rem] shadow-sm relative overflow-hidden group hover:shadow-lg transition-all duration-500 z-10 mx-auto md:mx-0 w-full max-w-sm md:max-w-none text-left">
+            <div className="flex items-center gap-3 mb-6 lg:mb-8 justify-center md:justify-start">
                 <div className="h-px w-10 bg-yasmin-rose"></div>
                 <span className="text-yasmin-olive font-semibold tracking-widest text-sm font-sans">CRP 15/8552</span>
             </div>
-            <div className="space-y-6 text-gray-700 text-lg md:text-xl leading-relaxed font-sans font-light relative z-10">
+            
+            <div className="space-y-4 lg:space-y-5 2xl:space-y-6 text-gray-700 text-lg 2xl:text-xl leading-relaxed font-sans font-light relative z-10">
                 <p>
                 Sou psicóloga formada pelo Centro Universitário Cesmac e atuo com a <strong className="text-yasmin-olive font-semibold">Terapia Cognitivo-Comportamental (TCC)</strong>. Atualmente, aprofundo meus estudos com a pós-graduação em TCC pelo InTCC.
                 </p>

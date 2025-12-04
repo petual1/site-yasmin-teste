@@ -8,8 +8,6 @@ import logoIcon from '../assets/logo-icon.png';
 const Footer = () => {
   // -states-
   const [isVisible, setIsVisible] = useState(false);
-  
-  // -refs-
   const sectionRef = useRef(null);
 
   // -effects-
@@ -32,9 +30,11 @@ const Footer = () => {
   };
 
   // -styles-
-  const desktopButtonWrapper = "group relative w-full h-16 rounded-full shadow-xl bg-yasmin-olive overflow-hidden cursor-pointer hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 mx-auto";
+  const desktopButtonWrapper = "group relative rounded-full shadow-xl bg-yasmin-olive overflow-hidden cursor-pointer hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 mx-auto w-64 lg:w-64 2xl:w-80 h-14 lg:h-14 2xl:h-16";
+  
   const sliderContainer = "absolute w-full h-[200%] top-0 flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-1/2";
-  const sliderHalfButton = "w-full h-1/2 flex items-center justify-center text-lg font-bold font-sans gap-3";
+  const sliderHalfButton = "w-full h-1/2 flex items-center justify-center text-base 2xl:text-lg font-bold font-sans gap-3";
+  
   const fixedMobileButton = "flex items-center justify-center w-full h-14 bg-yasmin-olive text-white rounded-full shadow-xl hover:bg-yasmin-olive/95 transition-colors duration-300 gap-2 text-lg font-bold font-sans";
 
   // -jsx-
@@ -65,7 +65,7 @@ const Footer = () => {
           <span className="text-yasmin-rose font-bold tracking-[0.2em] text-xs uppercase mb-4 block">
             Vamos conversar?
           </span>
-          <h2 className="text-4xl md:text-6xl font-serif text-yasmin-olive mb-6 leading-tight">
+          <h2 className="text-4xl lg:text-5xl 2xl:text-6xl font-serif text-yasmin-olive mb-6 leading-tight">
              Você merece viver com mais 
              <span className="text-yasmin-rose italic font-medium"> leveza </span> 
              e equilíbrio
@@ -75,7 +75,7 @@ const Footer = () => {
           </p>
 
           <div className="mx-auto w-full max-w-xs md:max-w-md">
-            <div className={`hidden md:block ${desktopButtonWrapper} w-80`}>
+            <div className={`hidden md:block ${desktopButtonWrapper}`}>
                 <a href="https://wa.me/558282171705" target="_blank" className="block w-full h-full relative">
                     <div className={sliderContainer}>
                         <div className={`${sliderHalfButton} text-white`}>
@@ -105,29 +105,33 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <a href="https://instagram.com/psi.yasminmello" target="_blank" className="group flex flex-col items-center justify-center p-6 rounded-3xl bg-white/60 backdrop-blur-md border border-white/60 shadow-sm hover:shadow-md hover:bg-white transition-all duration-300">
+        <div className="grid md:grid-cols-3 gap-4 lg:gap-5 2xl:gap-8 mb-12">
+            
+            {/* CARD INSTAGRAM */}
+            <a href="https://instagram.com/psi.yasminmello" target="_blank" className="group flex flex-col items-center justify-center p-6 lg:p-5 2xl:p-8 rounded-3xl bg-white/60 backdrop-blur-md border border-white/60 shadow-sm hover:shadow-md hover:bg-white transition-all duration-300">
                 <div className="mb-3 p-3 bg-white rounded-full text-yasmin-rose shadow-sm group-hover:scale-110 transition-transform">
-                    <Instagram size={24} />
+                    <Instagram size={24} className="2xl:w-7 2xl:h-7" />
                 </div>
                 <span className="text-xs text-gray-500 uppercase tracking-wider font-light mb-1 font-sans">Instagram</span>
-                <span className="text-lg font-serif text-yasmin-olive">@psi.yasminmello</span>
+                <span className="text-base 2xl:text-lg font-serif text-yasmin-olive">@psi.yasminmello</span>
             </a>
 
-            <a href="mailto:yasminmello.psi@gmail.com" className="group flex flex-col items-center justify-center p-6 rounded-3xl bg-white/60 backdrop-blur-md border border-white/60 shadow-sm hover:shadow-md hover:bg-white transition-all duration-300">
+            {/* CARD EMAIL */}
+            <a href="mailto:yasminmello.psi@gmail.com" className="group flex flex-col items-center justify-center p-6 lg:p-5 2xl:p-8 rounded-3xl bg-white/60 backdrop-blur-md border border-white/60 shadow-sm hover:shadow-md hover:bg-white transition-all duration-300">
                 <div className="mb-3 p-3 bg-white rounded-full text-yasmin-rose shadow-sm group-hover:scale-110 transition-transform">
-                    <Mail size={24} />
+                    <Mail size={24} className="2xl:w-7 2xl:h-7" />
                 </div>
                 <span className="text-xs text-gray-500 uppercase tracking-wider font-light mb-1 font-sans">Email</span>
-                <span className="text-base font-serif text-yasmin-olive break-all">yasminmello.psi@gmail.com</span>
+                <span className="text-sm 2xl:text-base font-serif text-yasmin-olive break-all text-center">yasminmello.psi@gmail.com</span>
             </a>
 
-            <div className="group flex flex-col items-center justify-center p-6 rounded-3xl bg-white/60 backdrop-blur-md border border-white/60 shadow-sm cursor-default">
+            {/* CARD LOCAL */}
+            <div className="group flex flex-col items-center justify-center p-6 lg:p-5 2xl:p-8 rounded-3xl bg-white/60 backdrop-blur-md border border-white/60 shadow-sm cursor-default">
                 <div className="mb-3 p-3 bg-white rounded-full text-yasmin-rose shadow-sm group-hover:scale-110 transition-transform">
-                    <MapPin size={24} />
+                    <MapPin size={24} className="2xl:w-7 2xl:h-7" />
                 </div>
                 <span className="text-xs text-gray-500 uppercase tracking-wider font-light mb-1 font-sans">Atendimento</span>
-                <span className="text-lg font-serif text-yasmin-olive text-center leading-tight">Online & Presencial</span>
+                <span className="text-base 2xl:text-lg font-serif text-yasmin-olive text-center leading-tight">Online & Presencial</span>
             </div>
         </div>
 
@@ -146,7 +150,7 @@ const Footer = () => {
                     <img 
                       src={logoFull} 
                       alt="Yasmin Mello Psicologia" 
-                      className="h-24 w-auto object-contain hover:opacity-90 transition-opacity block" 
+                      className="h-16 lg:h-20 2xl:h-24 w-auto object-contain hover:opacity-90 transition-opacity block" 
                     />
                 </div>
 
